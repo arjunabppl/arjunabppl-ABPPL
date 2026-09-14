@@ -2,5 +2,5 @@
   "name": "ABPPL",
   "description": "ABPPL - Paper Wholesaler & Distributor ERP with B2B Order Management, Purchase & Import Procurement, Landed Cost Engine, and Multi-Warehouse Inventory",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities":
 }
