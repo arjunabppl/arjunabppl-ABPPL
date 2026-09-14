@@ -9,6 +9,8 @@ import {
   PaperCategoryDefinition, PaperSizePreset
 } from '../types/index.js';
 
+const API_BASE_URL = 'https://arjunabppl-abppl.onrender.com';
+
 async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
   const token = localStorage.getItem('abppl_token');
   const headers: Record<string, string> = {
@@ -19,7 +21,9 @@ async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const res = await fetch(url, {
+ const fullUrl = url.startsWith('http') ? url : `${API_BASE_URL}${url}`;
+
+const res = await fetch(fullUrl, {
     ...options,
     headers,
   });
