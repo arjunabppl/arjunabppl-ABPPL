@@ -24,6 +24,24 @@ async function startServer() {
   const PORT = 3000;
 
   app.use(express.json());
+  const allowedOrigin = 'https://arjunabppl.github.io';
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+
+  if (origin === allowedOrigin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
 
   // --- MIDDLEWARES ---
 
