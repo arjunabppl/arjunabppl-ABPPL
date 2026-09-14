@@ -1,4 +1,3 @@
-```tsx
 import React, { useState } from 'react';
 
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -172,13 +171,6 @@ const MainAppContent: React.FC = () => {
   }
 
   const renderModuleContent = () => {
-    /*
-     * Authorization
-     *
-     * Admin-only modules:
-     * - User Management
-     * - System Settings
-     */
     if (isAdminModule(currentModule) && user.role !== 'admin') {
       return (
         <AccessDenied
@@ -189,11 +181,7 @@ const MainAppContent: React.FC = () => {
 
     switch (currentModule) {
       case 'dashboard':
-        return (
-          <Dashboard
-            onNavigate={navigate}
-          />
-        );
+        return <Dashboard onNavigate={navigate} />;
 
       case 'users':
         return <UserManagement />;
@@ -260,11 +248,7 @@ const MainAppContent: React.FC = () => {
         return <HelpPage />;
 
       default:
-        return (
-          <Dashboard
-            onNavigate={navigate}
-          />
-        );
+        return <Dashboard onNavigate={navigate} />;
     }
   };
 
@@ -312,4 +296,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-```
